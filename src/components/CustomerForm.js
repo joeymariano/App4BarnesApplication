@@ -24,7 +24,7 @@ class CustomerForm extends Component {
 	}
 
   
-	handleFormValidation = () => {    
+	formValidator = () => {    
 	    const { firstName, lastName, phone, email, zipcode } = this.state;    
 	    let formErrors = {};    
 	    let formIsValid = true;    
@@ -83,19 +83,22 @@ class CustomerForm extends Component {
 
 	render() {
 	    return (
-	      <form>
-	        <label>First Name</label>
-	        <input id='firstName' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
-	        <label>Last Name</label>
-	        <input id='lastName' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
-	        <label>Phone</label>
-	        <input id='phone' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
-			<label>Email</label>
-	        <input id='email' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
-	        <label>ZipCode</label>
-	        <input id='zipCode' name='zipCode' type='text' value={ this.state.zipCode } onChange={ this.updateState }/>
-	        <input id='submit' type='submit' value='Continue' />
-	      </form>
+	    	<div>
+		    	<form>
+			        <label>First Name</label>
+			        <input id='firstName' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
+			        <label>Last Name</label>
+			        <input id='lastName' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
+			        <label>Phone</label>
+			        <input id='phone' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
+					<label>Email</label>
+			        <input id='email' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
+			        <label>ZipCode</label>
+			        <input id='zipCode' name='zipCode' type='text' value={ this.state.zipCode } onChange={ this.updateState }/>
+			        <input id='submit' type='submit' value='Continue' onSubmit={ this.formValidator}/>
+		    	</form>
+		        {/* errors go here */}
+	        </div>
 	    )
 	}
 }
