@@ -32,48 +32,48 @@ class CustomerForm extends Component {
 	    //frist name     
 	    if (!firstName) {    
 	        formIsValid = false;    
-	        formErrors["firstNameErr"] = "First Name is required.";    
+	        formErrors['firstNameErr'] = 'First Name is required.';    
 	    }    
 
 	   	//last name     
 	    if (!lastName) {    
 	        formIsValid = false;    
-	        formErrors["lastNameErr"] = "Last Name is required.";    
+	        formErrors['lastNameErr'] = 'Last Name is required.';    
 	    }    
 
 	    //email    
 	    if (!email) {    
 	        formIsValid = false;    
-	        formErrors["emailErr"] = "Email is required.";    
+	        formErrors['emailErr'] = 'Email is required.';    
 	    }    
 	    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {    
 	        formIsValid = false;    
-	        formErrors["emailErr"] = "Invalid email.";    
+	        formErrors['emailErr'] = 'Invalid email.';    
 	    }    
 
 	    //phone number    
 	    if (!phone) {    
 	        formIsValid = false;    
-	        formErrors["phoneErr"] = "Phone number is required.";    
+	        formErrors['phoneErr'] = 'Phone number is required.';    
 	    }    
 	    else {    
 	        var phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/;    
 	        if (!phoneRegex.test(phone)) {    
 	            formIsValid = false;    
-	            formErrors["phoneNumberErr"] = "Invalid phone number.";    
+	            formErrors['phoneNumberErr'] = 'Invalid phone number.';    
 	        }    
 	    }
 
 	    //zipcode    
 	    if (!zipcode) {    
 	        formIsValid = false;    
-	        formErrors["zipcodeErr"] = "Phone number is required.";    
+	        formErrors['zipcodeErr'] = 'Phone number is required.';    
 	    }    
 	    else {    
 	        var zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/;    
 	        if (!zipcodeRegex.test(zipcode)) {    
 	            formIsValid = false;    
-	            formErrors["zipcodeErr"] = "Invalid zipcode.";    
+	            formErrors['zipcodeErr'] = 'Invalid zipcode.';    
 	        }    
 	    }
 
@@ -85,15 +85,16 @@ class CustomerForm extends Component {
 	    return (
 	      <form>
 	        <label>First Name</label>
-	        <input id="firstName" name="firstName" type="text" value={ this.state.firstName } onChange={ this.updateState }/>
+	        <input id='firstName' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
 	        <label>Last Name</label>
-	        <input id="lastName" name="lastName" type="text" value={ this.state.lastName } onChange={ this.updateState }/>
+	        <input id='lastName' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
 	        <label>Phone</label>
-	        <input id="phone" name="phone" type="text" value={ this.state.phone } onChange={ this.updateState }/>
+	        <input id='phone' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
 			<label>Email</label>
-	        <input id="email" name="email" type="text" value={ this.state.email } onChange={ this.updateState }/>
+	        <input id='email' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
 	        <label>ZipCode</label>
-	        <input id="zipCode" name="zipCode" type="text" value={ this.state.zipCode } onChange={ this.updateState }/>
+	        <input id='zipCode' name='zipCode' type='text' value={ this.state.zipCode } onChange={ this.updateState }/>
+	        <input id='submit' type='submit' value='Continue' />
 	      </form>
 	    )
 	}
