@@ -7,78 +7,79 @@ import React, { Component } from 'react';
 
 class CustomerForm extends Component {
 	constructor(props) {
-	    super(props);
-		    this.state = {
-		      firstName: '',
-		      lastName: '',
-		      phone: '',
-		      email: '',
-		      zipCode: ''
-		    };
+	super(props);
+	 this.state = {
+	   firstName: '',
+	   lastName: '',
+	   phone: '',
+	   email: '',
+	   zipCode: '',
+	   formErrors: {}
+	 }	
 	}
 
 	updateState = (event) => {
-	    this.setState({
-	      [event.target.name]: event.target.value
-	    })
+	 this.setState({
+	   [event.target.name]: event.target.value
+	 })
 	}
 
-  
+
 	formValidator = () => {    
-	    const { firstName, lastName, phone, email, zipcode } = this.state;    
-	    let formErrors = {};    
-	    let formIsValid = true;    
+	 const { firstName, lastName, phone, email, zipcode } = this.state
+	 let formErrors = {}
+	 let formIsValid = true  
 
-	    //frist name     
-	    if (!firstName) {    
-	        formIsValid = false;    
-	        formErrors['firstNameErr'] = 'First Name is required.';    
-	    }    
+	 //frist name     
+	 if (!firstName) {    
+	     formIsValid = false  
+	     formErrors['firstNameErr'] = 'First Name is required.'
+	 }    
 
-	   	//last name     
-	    if (!lastName) {    
-	        formIsValid = false;    
-	        formErrors['lastNameErr'] = 'Last Name is required.';    
-	    }    
+		//last name     
+	 if (!lastName) {    
+	     formIsValid = false
+	     formErrors['lastNameErr'] = 'Last Name is required.'  
+	 }    
 
-	    //email    
-	    if (!email) {    
-	        formIsValid = false;    
-	        formErrors['emailErr'] = 'Email is required.';    
-	    }    
-	    else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {    
-	        formIsValid = false;    
-	        formErrors['emailErr'] = 'Invalid email.';    
-	    }    
+	 //email    
+	 if (!email) {    
+	     formIsValid = false;    
+	     formErrors['emailErr'] = 'Email is required.'    
+	 }    
+	 else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {    
+	     formIsValid = false
+	     formErrors['emailErr'] = 'Invalid email.'  
+	 }    
 
-	    //phone number    
-	    if (!phone) {    
-	        formIsValid = false;    
-	        formErrors['phoneErr'] = 'Phone number is required.';    
-	    }    
-	    else {    
-	        var phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/;    
-	        if (!phoneRegex.test(phone)) {    
-	            formIsValid = false;    
-	            formErrors['phoneNumberErr'] = 'Invalid phone number.';    
-	        }    
-	    }
+	 //phone number    
+	 if (!phone) {    
+	     formIsValid = false   
+	     formErrors['phoneErr'] = 'Phone number is required.' 
+	 }    
+	 else {    
+	     var phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/
+	     if (!phoneRegex.test(phone)) {    
+	         formIsValid = false
+	         formErrors['phoneNumberErr'] = 'Invalid phone number.'    
+	     }    
+	 }
 
-	    //zipcode    
-	    if (!zipcode) {    
-	        formIsValid = false;    
-	        formErrors['zipcodeErr'] = 'Phone number is required.';    
-	    }    
-	    else {    
-	        var zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/;    
-	        if (!zipcodeRegex.test(zipcode)) {    
-	            formIsValid = false;    
-	            formErrors['zipcodeErr'] = 'Invalid zipcode.';    
-	        }    
-	    }
+	 //zipcode    
+	 if (!zipcode) {    
+	     formIsValid = false;    
+	     formErrors['zipcodeErr'] = 'Phone number is required.' 
+	 }    
+	 else {    
+	     var zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/  
+	     if (!zipcodeRegex.test(zipcode)) {    
+	         formIsValid = false
+	         formErrors['zipcodeErr'] = 'Invalid zipcode.'  
+	     }    
+	 }
 
-	    this.setState({ formErrors: formErrors });    
-	    return formIsValid;    
+	 this.setState({ formErrors: formErrors })  
+	 return formIsValid 
 	}   
 
 	render() {
@@ -98,9 +99,9 @@ class CustomerForm extends Component {
 			        <input id='submit' type='submit' value='Continue' onSubmit={ this.formValidator}/>
 		    	</form>
 		        {/* errors go here */}
-	        </div>
+	      </div>
 	    )
 	}
 }
 
-export default CustomerForm;
+export default CustomerForm
