@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 
 class CustomerForm extends Component {
 	constructor(props) {
-	super(props);
+		super(props);
 		this.state = {
 		  firstName: '',
 		  lastName: '',
@@ -15,7 +15,8 @@ class CustomerForm extends Component {
 		  email: '',
 		  zipcode: '',
 		  formErrors: {}
-	 	}	
+	 	}
+	 	this.initialState = this.state;    
 	}
 
 	updateState = (event) => {
@@ -25,12 +26,11 @@ class CustomerForm extends Component {
 	}
 
 
-	formValidator = (props) => {
-		const { firstName, lastName, phone, email, zipcode } = this.state
+	formValidator = () => {
+		let { firstName, lastName, phone, email, zipcode } = this.state
 		let formErrors = {}
 		let formIsValid = true  
 
-		debugger
 		//frist name     
 		if (!firstName) {    
 		   formIsValid = false  
@@ -79,35 +79,44 @@ class CustomerForm extends Component {
 	     }    
 	 }
 
-		this.setState({ formErrors: formErrors })  
 
-		return formIsValid 
+   this.setState({ ...this.state, formErrors: formErrors })
+	  debugger
+	  return formIsValid;  
+	}
 
+	handleSubmit = (event) => {
+		event.preventDefault();
+
+		if (this.formValidator()){
+			      alert('You have been successfully registered.')
+            this.setState(this.initialState)    
+		}
 	}
 
 
 	render() {
 		return (
-			<form onSubmit={ this.formValidator }>
+			<form onSubmit={ event => this.handleSubmit(event) }>
 				<label>First Name</label>
 				<input id='firstName' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
-				<label id='firstNameErrors' className='errors'>{ this.state.formErrors['firstName'] }</label>
+				<div id='firstNameErr' className='errors'>{ this.state.formErrors['firstNameErr'] } </div>
 
 				<label>Last Name</label>
 				<input id='lastName' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
-				<label id='firstNameErrors' className='errors'>{ this.state.formErrors['lastName'] }</label>
+				<div id='lastNameErr' className='errors'>{ this.state.formErrors['lastNameErr'] }</div>
 
 				<label>Phone</label>
 				<input id='phone' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
-				<label id='firstNameErrors' className='errors'>{ this.state.formErrors['phone'] }</label>
+				<div id='phoneErr' className='errors'>{ this.state.formErrors['phoneErr'] }</div>
 
 				<label>Email</label>
 				<input id='email' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
-				<label id='firstNameErrors' className='errors'>{this.state.formErrors['email']}</label>
+				<div id='emailErr' className='errors'>{this.state.formErrors['emailErr']}</div>
 
 				<label>Zipcode</label>
 				<input id='zipcode' name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
-				<label id='firstNameErrors' className='errors'>{this.state.formErrors['zipcode']}</label>
+				<div id='zipcodeErr' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
 
 				<input id='submit' type='submit' value='Continue' />
 			</form>
