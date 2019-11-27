@@ -19,78 +19,70 @@ class CustomerForm extends Component {
 	 	this.initialState = this.state;    
 	}
 
+	formValidator = () => {
+		let { firstName, lastName, phone, email, zipcode } = this.state
+		let formErrors = {}
+		let formIsValid = true  
+		// frist name     
+		if (!firstName) {    
+			formIsValid = false  
+			formErrors['firstNameErr'] = 'First Name is required.'
+		}   
+		// last name     
+		if (!lastName) {    
+			formIsValid = false
+			formErrors['lastNameErr'] = 'Last Name is required.'  
+		} 
+		// email    
+		if (!email) {    
+			formIsValid = false;    
+			formErrors['emailErr'] = 'Email is required.'    
+		} else { 
+			let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/  
+			if (!emailRegex.test(email)) { 
+			formIsValid = false
+				formErrors['emailErr'] = 'Invalid email.'  
+			}
+		}    
+		// phone number    
+		if (!phone) {    
+			formIsValid = false   
+			formErrors['phoneErr'] = 'Phone number is required.' 
+		} else {    
+			let phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/
+			if (!phoneRegex.test(phone)) {    
+			   formIsValid = false
+			   formErrors['phoneNumberErr'] = 'Invalid phone number.'    
+			}
+		}
+		// zipcode    
+		if (!zipcode) {    
+			formIsValid = false;    
+			formErrors['zipcodeErr'] = 'Phone number is required.' 
+		} else {    
+			let zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/  
+			if (!zipcodeRegex.test(zipcode)) {    
+			   formIsValid = false
+			   formErrors['zipcodeErr'] = 'Invalid zipcode.'
+			}  
+		}    
+		// update formError state
+  	this.setState({ ...this.state, formErrors: formErrors })
+  	// return boolean
+		return formIsValid;  
+	}
+
 	updateState = (event) => {
 	 this.setState({
 	   [event.target.name]: event.target.value
 	 })
 	}
 
-
-	formValidator = () => {
-		let { firstName, lastName, phone, email, zipcode } = this.state
-		let formErrors = {}
-		let formIsValid = true  
-
-		//frist name     
-		if (!firstName) {    
-		   formIsValid = false  
-		   formErrors['firstNameErr'] = 'First Name is required.'
-		}    
-
-		//last name     
-		if (!lastName) {    
-		   formIsValid = false
-		   formErrors['lastNameErr'] = 'Last Name is required.'  
-		}    
-
-	 //email    
-	 if (!email) {    
-	     formIsValid = false;    
-	     formErrors['emailErr'] = 'Email is required.'    
-	 } else { 
-	 		let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/  
-	 		if (!emailRegex.test(email)) { 
-	     formIsValid = false
-	     formErrors['emailErr'] = 'Invalid email.'  
-	    }
-	 }    
-
-	 //phone number    
-	 if (!phone) {    
-	     formIsValid = false   
-	     formErrors['phoneErr'] = 'Phone number is required.' 
-	 } else {    
-	     var phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/
-	     if (!phoneRegex.test(phone)) {    
-	         formIsValid = false
-	         formErrors['phoneNumberErr'] = 'Invalid phone number.'    
-	     }
-	 }
-
-	 //zipcode    
-	 if (!zipcode) {    
-	     formIsValid = false;    
-	     formErrors['zipcodeErr'] = 'Phone number is required.' 
-	 } else {    
-	     var zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/  
-	     if (!zipcodeRegex.test(zipcode)) {    
-	         formIsValid = false
-	         formErrors['zipcodeErr'] = 'Invalid zipcode.'  
-	     }    
-	 }
-
-
-   this.setState({ ...this.state, formErrors: formErrors })
-	  debugger
-	  return formIsValid;  
-	}
-
 	handleSubmit = (event) => {
 		event.preventDefault();
-
 		if (this.formValidator()){
-			      alert('You have been successfully registered.')
-            this.setState(this.initialState)    
+	    alert('Thank you for your information.')
+	    this.setState(this.initialState)    
 		}
 	}
 
