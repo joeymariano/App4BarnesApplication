@@ -16,6 +16,7 @@ class CustomerForm extends Component {
 		  zipcode: '',
 		  formErrors: {}
 	 	}
+
 	 	this.initialState = this.state;    
 	}
 
@@ -85,7 +86,6 @@ class CustomerForm extends Component {
 	    this.setState(this.initialState)    
 		}
 	}
-
 
 	render() {
 		return (
