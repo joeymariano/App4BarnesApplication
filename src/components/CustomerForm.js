@@ -90,27 +90,37 @@ class CustomerForm extends Component {
 	render() {
 		return (
 			<form onSubmit={ event => this.handleSubmit(event) }>
-				<label>First Name</label>
-				<input id='firstName' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
-				<div id='firstNameErr' className='errors'>{ this.state.formErrors['firstNameErr'] } </div>
+				<div id="first-name-group" class="form-group">
+					<label>First Name</label>
+					<input id='first-name-input' name='first-name' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
+					<div id='first-name-err' className='errors'>{ this.state.formErrors['firstNameErr'] }</div>
+				</div>
 
-				<label>Last Name</label>
-				<input id='lastName' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
-				<div id='lastNameErr' className='errors'>{ this.state.formErrors['lastNameErr'] }</div>
+				<div id="last-name-group" class="form-group">
+					<label>Last Name</label>
+					<input id='last-name-input' name='last-name' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
+					<div id='last-name-err' className='errors'>{ this.state.formErrors['lastNameErr'] }</div>
+				</div>				
 
-				<label>Phone</label>
-				<input id='phone' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
-				<div id='phoneErr' className='errors'>{ this.state.formErrors['phoneErr'] }</div>
+				<div id="phone-group" class="form-group">
+					<label>Phone</label>
+					<input id='phone-input' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
+					<div id='phone-err' className='errors'>{ this.state.formErrors['phoneErr'] }</div>
+				</div>
 
-				<label>Email</label>
-				<input id='email' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
-				<div id='emailErr' className='errors'>{this.state.formErrors['emailErr']}</div>
+				<div id="email-group" class="form-group">
+					<label>Email</label>
+					<input id='email-input' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
+					<div id='email-err' className='errors'>{this.state.formErrors['emailErr']}</div>
+				</div>
 
-				<label>Zipcode</label>
-				<input id='zipcode' name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
-				<div id='zipcodeErr' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
+				<div id="zipcode-group" class="form-group">
+					<label>Zipcode</label>
+					<input id='zipcode-input' name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
+					<div id='zipcode-err' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
+				</div>
 
-				<input id='submit' type='submit' value='Continue' />
+				<button id='submit' class='continue-button' type='submit' value='Continue'>Continue</button>
 			</form>
 		)
 	}
