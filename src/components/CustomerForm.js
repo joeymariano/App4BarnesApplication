@@ -92,13 +92,13 @@ class CustomerForm extends Component {
 			<form onSubmit={ event => this.handleSubmit(event) }>
 				<div id="first-name-group" class="form-group">
 					<label>First Name</label>
-					<input id='first-name-input' name='first-name' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
+					<input id='first-name-input' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
 					<div id='first-name-err' className='errors'>{ this.state.formErrors['firstNameErr'] }</div>
 				</div>
 
 				<div id="last-name-group" class="form-group">
 					<label>Last Name</label>
-					<input id='last-name-input' name='last-name' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
+					<input id='last-name-input' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
 					<div id='last-name-err' className='errors'>{ this.state.formErrors['lastNameErr'] }</div>
 				</div>				
 
