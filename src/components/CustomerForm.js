@@ -14,7 +14,8 @@ class CustomerForm extends Component {
 		  phone: '',
 		  email: '',
 		  zipcode: '',
-		  formErrors: {}
+		  formErrors: {},
+		  visible: true
 	 	}
 
 	 	this.initialState = this.state;    
@@ -39,7 +40,7 @@ class CustomerForm extends Component {
 			formIsValid = false;    
 			formErrors['emailErr'] = 'Email is required.'    
 		} else { 
-			let emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/  
+			let emailRegex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/  
 			if (!emailRegex.test(email)) { 
 			formIsValid = false
 				formErrors['emailErr'] = 'Invalid email.'  
@@ -50,18 +51,18 @@ class CustomerForm extends Component {
 			formIsValid = false   
 			formErrors['phoneErr'] = 'Phone number is required.' 
 		} else {    
-			let phoneRegex = /^(?:(?:\\+|0{0,2})91(\s*[\\-]\s*)?|[0]?)?[789]\d{9}$/
+			let phoneRegex = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/
 			if (!phoneRegex.test(phone)) {    
 			   formIsValid = false
-			   formErrors['phoneNumberErr'] = 'Invalid phone number.'    
+			   formErrors['phoneErr'] = 'Invalid phone number.'    
 			}
 		}
 		// zipcode    
 		if (!zipcode) {    
 			formIsValid = false;    
-			formErrors['zipcodeErr'] = 'Phone number is required.' 
+			formErrors['zipcodeErr'] = 'Zipcode is required.' 
 		} else {    
-			let zipcodeRegex = /(^(?!0{5})(\d{5})(?!-?0{4})(-?\d{4})?$)/  
+			let zipcodeRegex = /^[0-9]{5}$/  
 			if (!zipcodeRegex.test(zipcode)) {    
 			   formIsValid = false
 			   formErrors['zipcodeErr'] = 'Invalid zipcode.'
@@ -80,16 +81,30 @@ class CustomerForm extends Component {
 	}
 
 	handleSubmit = (event) => {
-		event.preventDefault();
+		event.preventDefault()
 		if (this.formValidator()){
-	    alert('Thank you for your information.')
-	    this.setState(this.initialState)    
+	    this.visibleCntrl() // toggle state to be not visible
+		}
+	}
+
+	visibleCntrl = () => {
+		// use form.minimize and form.maximize depending on min max count?
+		this.setState(prevState => ({
+		  visible: !prevState.visible
+		}));
+	}
+
+	formVisibleCntrl = () => {
+		if (this.state.visible === true){ 
+			return 'visible'
+		} else { 
+			return 'invisible' 
 		}
 	}
 
 	render() {
 		return (
-			<form onSubmit={ event => this.handleSubmit(event) }>
+			<form className={ this.formVisibleCntrl() } onSubmit={ event => this.handleSubmit(event) }>
 				<div id="first-name-group" class="form-group">
 					<label>First Name</label>
 					<input id='first-name-input' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>

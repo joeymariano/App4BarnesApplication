@@ -21,6 +21,21 @@ h2{
 	font-size: 100%;
 	margin: 0 10% 0 10%;
 }
+
+
+form{
+  transition:transform 0.5s ease-out; 
+  transform:scaleY(1);
+  transform-origin:top; 
+}
+form.visible {
+	transform:scaleY(1);
+}
+
+form.invisible {
+	transform:scaleY(0);
+}
+
 .form-group{
 	display:inline-block;
 }
