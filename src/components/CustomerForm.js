@@ -83,19 +83,12 @@ class CustomerForm extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		if (this.formValidator()){
-	    this.visibleCntrl() // toggle state to be not visible
+	    this.props.visibleCntrl() // toggle state to be not visible
 		}
 	}
 
-	visibleCntrl = () => {
-		// use form.minimize and form.maximize depending on min max count?
-		this.setState(prevState => ({
-		  visible: !prevState.visible
-		}));
-	}
-
 	formVisibleCntrl = () => {
-		if (this.state.visible === true){ 
+		if (this.props.visible === true){ 
 			return 'visible'
 		} else { 
 			return 'invisible' 
