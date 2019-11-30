@@ -25,15 +25,13 @@ class AccordionContainer extends Component {
 			<div id="customer-form-container">
         <Card>
         	<CardBody>
-
-						<div class="form-header" onClick={ () => { this.visibleCntrl() } }>
-							<h2 class="form-header-title">{ this.props.title } <Button outline className="float-right edit-form-button" size="sm">edit</Button></h2>
+						<div class="accordion-header" onClick={ () => { this.visibleCntrl() } }>
+							<h2 class="accordion-title">{ this.props.title } <Button outline className="float-right edit-form-button" size="sm">edit</Button></h2>
 						</div>
 
 						<Collapse isOpen={ this.state.visible }>
 							<CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
 						</Collapse>
-
 					</CardBody>
 		    </Card>
 			</div>

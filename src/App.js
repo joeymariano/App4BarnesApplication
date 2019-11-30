@@ -14,12 +14,12 @@ class App extends Component {
 	      		</Col>
 			</Row>
 	  		<Row>
-				<Col sm="12" md="8">
+				<Col md="12" lg="8">
 	        			<AccordionContainer title={ 'Customer Information'}/>
 	      		</Col>
 			</Row>
 	     </Container>
-    );
+    )
   }
 }
 
