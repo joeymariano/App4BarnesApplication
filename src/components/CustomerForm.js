@@ -4,6 +4,8 @@
 // Zip Code (at least 5 digits, only numbers)
 
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 class CustomerForm extends Component {
 	constructor(props) {
@@ -97,39 +99,34 @@ class CustomerForm extends Component {
 
 	render() {
 		return (
-			<form className={ this.formVisibleCntrl() } onSubmit={ event => this.handleSubmit(event) }>
-				<div id="first-name-group" class="form-group">
-					<label>First Name</label>
-					<input id='first-name-input' name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
+			<Form onSubmit={ (event) => this.handleSubmit(event) }>
+				<FormGroup>
+					<Input id='first-name-input' placeholder="First Name"  name='firstName' type='text' value={ this.state.firstName } onChange={ this.updateState }/>
 					<div id='first-name-err' className='errors'>{ this.state.formErrors['firstNameErr'] }</div>
-				</div>
+				</FormGroup>
 
-				<div id="last-name-group" class="form-group">
-					<label>Last Name</label>
-					<input id='last-name-input' name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
+				<FormGroup>
+					<Input id='last-name-input' placeholder="Last Name"  name='lastName' type='text' value={ this.state.lastName } onChange={ this.updateState }/>
 					<div id='last-name-err' className='errors'>{ this.state.formErrors['lastNameErr'] }</div>
-				</div>				
+				</FormGroup>	
 
-				<div id="phone-group" class="form-group">
-					<label>Phone</label>
-					<input id='phone-input' name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
+				<FormGroup>
+					<Input id='phone-input' placeholder="10 Digit Phone Number" name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
 					<div id='phone-err' className='errors'>{ this.state.formErrors['phoneErr'] }</div>
-				</div>
+				</FormGroup>
 
-				<div id="email-group" class="form-group">
-					<label>Email</label>
-					<input id='email-input' name='email' type='text' value={ this.state.email } onChange={ this.updateState }/>
+				<FormGroup>
+					<Input id='email-input' name='email' placeholder={'Email'} type='email' value={ this.state.email } onChange={ this.updateState }/>
 					<div id='email-err' className='errors'>{this.state.formErrors['emailErr']}</div>
-				</div>
+				</FormGroup>
 
-				<div id="zipcode-group" class="form-group">
-					<label>Zipcode</label>
-					<input id='zipcode-input' name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
+				<FormGroup>
+					<Input id='zipcode-input' placeholder={"Zipcode"} name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
 					<div id='zipcode-err' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
-				</div>
-
-				<button id='submit' class='continue-button' type='submit' value='Continue'>Continue</button>
-			</form>
+				</FormGroup>
+				
+				<Button>Continue</Button>
+			</Form>
 		)
 	}
 }
