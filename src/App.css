@@ -17,9 +17,16 @@ h2{
 }
 
 .form-header {
-	margin-bottom: 20px;
+	margin-bottom: 24px;
 }
 
 .edit-form-button {
 	margin-top: 6px;
+}
+
+.errors{
+	height: 20px;
+	font-size: .8em;
+	color: red;
+	margin-bottom: -6px;
 }
