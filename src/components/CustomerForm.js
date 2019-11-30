@@ -124,7 +124,7 @@ class CustomerForm extends Component {
 					<div id='zipcode-err' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
 				</FormGroup>
 				
-				<Button>Continue</Button>
+				<Button color="danger">Continue</Button>
 			</Form>
 		)
 	}

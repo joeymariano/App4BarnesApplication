@@ -17,7 +17,7 @@ h2{
 }
 
 .form-header {
-	margin-bottom: 24px;
+	margin-bottom: 18px;
 }
 
 .edit-form-button {
@@ -27,6 +27,12 @@ h2{
 .errors{
 	height: 20px;
 	font-size: .8em;
-	color: red;
+	color: #d64220;
 	margin-bottom: -6px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d64220 !important;
+    border-color: #E63546 !important;
 }
