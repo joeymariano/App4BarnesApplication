@@ -4,7 +4,7 @@
 // Zip Code (at least 5 digits, only numbers)
 
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Row, Col, Card, CardBody } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class CustomerForm extends Component {
 	constructor(props) {
@@ -70,8 +70,8 @@ class CustomerForm extends Component {
 			}  
 		}    
 		// update formError state
-  	this.setState({ ...this.state, formErrors: formErrors })
-  	// return boolean
+	  	this.setState({ ...this.state, formErrors: formErrors })
+	  	// return boolean
 		return formIsValid;  
 	}
 

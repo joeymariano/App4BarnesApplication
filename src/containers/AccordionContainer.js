@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import CustomerForm from '../components/CustomerForm'
 import HeroService from '../components/HeroService'
-import { Collapse, Button, CardBody, Card, Row, Col } from 'reactstrap';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
 class AccordionContainer extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
