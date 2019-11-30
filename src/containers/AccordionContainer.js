@@ -20,6 +20,13 @@ class AccordionContainer extends Component {
 		}));
 	}
 
+	outputFormOrHero = () => {
+		if (this.props.title === 'Customer Information'){
+			return <CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
+
+		}
+	}
+
 	render(){
 		return(
 			<div id="customer-form-container">
@@ -30,7 +37,7 @@ class AccordionContainer extends Component {
 						</div>
 
 						<Collapse isOpen={ this.state.visible }>
-							<CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
+							{ this.outputFormOrHero() }
 						</Collapse>
 					</CardBody>
 		    </Card>

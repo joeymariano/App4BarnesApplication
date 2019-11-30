@@ -110,7 +110,7 @@ class CustomerForm extends Component {
 				</FormGroup>	
 
 				<FormGroup>
-					<Input id='phone-input' placeholder="10 Digit Phone Number" name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
+					<Input id='phone-input' placeholder="5556667777" name='phone' type='text' value={ this.state.phone } onChange={ this.updateState }/>
 					<div id='phone-err' className='errors'>{ this.state.formErrors['phoneErr'] }</div>
 				</FormGroup>
 
@@ -120,7 +120,7 @@ class CustomerForm extends Component {
 				</FormGroup>
 
 				<FormGroup>
-					<Input id='zipcode-input' placeholder={"Zipcode"} name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
+					<Input id='zipcode-input' placeholder={"Zipcode"} name='55555' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
 					<div id='zipcode-err' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
 				</FormGroup>
 				

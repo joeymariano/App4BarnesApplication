@@ -36,3 +36,7 @@ h2{
     background-color: #d64220 !important;
     border-color: #E63546 !important;
 }
+
+.card {
+	margin-bottom: 40px;
+}
