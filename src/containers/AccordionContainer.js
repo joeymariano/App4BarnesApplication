@@ -24,16 +24,15 @@ class AccordionContainer extends Component {
 		return(
 			<div id="customer-form-container">
         <Card>
-        <CardBody>
-					<div class="form-header" onClick={ () => { this.visibleCntrl() } }>
-						<span class="number-button-red">1</span><h2>{ this.props.title }</h2>
-					</div>
-					<Collapse isOpen={ this.state.visible }>
-					<CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
-					</Collapse>
+        	<CardBody>
+						<div class="form-header" onClick={ () => { this.visibleCntrl() } }>
+							<span class="number-button-red">1</span><h2>{ this.props.title }</h2>
+						</div>
+						<Collapse isOpen={ this.state.visible }>
+							<CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
+						</Collapse>
 					</CardBody>
 		    </Card>
-
 			</div>
 		)
 	}
