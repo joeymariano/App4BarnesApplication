@@ -29,13 +29,22 @@ class AccordionContainer extends Component {
 		}
 	}
 
+	toggleButtonName = () => {
+		if (this.state.visible){
+			return 'collapse'
+		} else {
+			return 'edit'
+		}
+	}
+
 	render(){
 		return(
 			<div id="customer-form-container">
         <Card>
         	<CardBody>
-						<div class="accordion-header" onClick={ () => { this.visibleCntrl() } }>
-							<h2 class="accordion-title">{ this.props.title } <Button outline className="float-right edit-form-button" size="sm">edit</Button></h2>
+						<div class="accordion-header" onClick={ () => { this.visibleCntrl() } }> 
+							<h2 class="accordion-title">{ this.props.title }
+							<Button outline className="float-right edit-form-button" size="sm">{ this.toggleButtonName() }</Button></h2>
 						</div>
 
 						<Collapse isOpen={ this.state.visible }>
