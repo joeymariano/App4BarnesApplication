@@ -4,7 +4,10 @@
 // Zip Code (at least 5 digits, only numbers)
 
 import React, { Component } from 'react';
-// import { Button } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/act'
 
 class HeroService extends Component {
 	constructor(props) {
@@ -34,13 +37,29 @@ class HeroService extends Component {
 		}
 	}
 
+	thisPropsHeros = () => {
+		debugger
+		return this.props.heros
+	}
+
 	render() {
 		return (
-			<div>Heros</div>
+			<div>
+				<Button onClick={ () => { this.props.actions.getHeroService() }}>Get Heros</Button>
+				<p>{ JSON.stringify(this.props.heros) }</p>
+				<p>{ JSON.stringify(this.props.info) }</p>
+			</div>
 		)
 	}
 }
 
+function mapStateToProps(rootReducer) {
+  return {
+    heros: rootReducer.herosReducer.heros,
+    info: rootReducer.herosReducer.info
+  }
+}
 
+function mapDispatchToProps(dispatch) { return {actions: bindActionCreators(actions, dispatch)} }
 
-export default HeroService
+export default connect(mapStateToProps, mapDispatchToProps)(HeroService)
