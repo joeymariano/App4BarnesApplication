@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import CustomerFormContainer from './containers/CustomerFormContainer'
+import AccordionContainer from './containers/AccordionContainer'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <CustomerFormContainer />
+        <AccordionContainer title={ 'Customer Information'}/>
       </div>
     );
   }
