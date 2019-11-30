@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CustomerForm from '../components/CustomerForm'
+import HeroService from '../components/HeroService'
 import { Collapse, Button, CardBody, Card, Row, Col } from 'reactstrap';
 
 class AccordionContainer extends Component {
@@ -23,7 +24,9 @@ class AccordionContainer extends Component {
 	outputFormOrHero = () => {
 		if (this.props.title === 'Customer Information'){
 			return <CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
-
+		}
+		if (this.props.title === 'Hero Service'){
+			return <HeroService visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
 		}
 	}
 
@@ -39,6 +42,7 @@ class AccordionContainer extends Component {
 						<Collapse isOpen={ this.state.visible }>
 							{ this.outputFormOrHero() }
 						</Collapse>
+
 					</CardBody>
 		    </Card>
 			</div>

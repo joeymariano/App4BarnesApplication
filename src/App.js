@@ -16,7 +16,7 @@ class App extends Component {
 	  		<Row>
 				<Col md="12" lg="8">
 	        		<AccordionContainer title={ 'Customer Information'}/>
-	        		<AccordionContainer title={ 'Heros'}/>
+	        		<AccordionContainer title={ 'Hero Service'}/>
 	      		</Col>
 			</Row>
 	     </Container>

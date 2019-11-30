@@ -115,12 +115,12 @@ class CustomerForm extends Component {
 				</FormGroup>
 
 				<FormGroup>
-					<Input id='email-input' name='email' placeholder={'Email'} type='email' value={ this.state.email } onChange={ this.updateState }/>
+					<Input id='email-input' name='email' placeholder={'email@email.com'} type='email' value={ this.state.email } onChange={ this.updateState }/>
 					<div id='email-err' className='errors'>{this.state.formErrors['emailErr']}</div>
 				</FormGroup>
 
 				<FormGroup>
-					<Input id='zipcode-input' placeholder={"Zipcode"} name='55555' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
+					<Input id='zipcode-input' placeholder={"19555"} name='zipcode' type='text' value={ this.state.zipcode } onChange={ this.updateState }/>
 					<div id='zipcode-err' className='errors'>{ this.state.formErrors['zipcodeErr'] }</div>
 				</FormGroup>
 				

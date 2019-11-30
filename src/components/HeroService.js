@@ -4,9 +4,9 @@
 // Zip Code (at least 5 digits, only numbers)
 
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Row, Col, Card, CardBody } from 'reactstrap';
+import { Button } from 'reactstrap';
 
-class CustomerForm extends Component {
+class HeroService extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -24,9 +24,6 @@ class CustomerForm extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		if (this.formValidator()){
-	    this.props.visibleCntrl() // toggle state to be not visible
-		}
 	}
 
 	formVisibleCntrl = () => {
@@ -44,4 +41,4 @@ class CustomerForm extends Component {
 	}
 }
 
-export default CustomerForm
+export default HeroService
