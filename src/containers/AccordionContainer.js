@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CustomerForm from '../components/CustomerForm'
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, Row, Col } from 'reactstrap';
 
 class AccordionContainer extends Component {
 
@@ -25,12 +25,15 @@ class AccordionContainer extends Component {
 			<div id="customer-form-container">
         <Card>
         	<CardBody>
+
 						<div class="form-header" onClick={ () => { this.visibleCntrl() } }>
-							<span class="number-button-red">1</span><h2>{ this.props.title }</h2>
+							<h2 class="form-header-title">{ this.props.title } <Button outline size="sm" class="float-right">edit</Button></h2>
 						</div>
+
 						<Collapse isOpen={ this.state.visible }>
 							<CustomerForm visibleCntrl={ this.visibleCntrl } visible={ this.state.visible }/>
 						</Collapse>
+
 					</CardBody>
 		    </Card>
 			</div>

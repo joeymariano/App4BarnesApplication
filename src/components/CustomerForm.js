@@ -4,8 +4,7 @@
 // Zip Code (at least 5 digits, only numbers)
 
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Row, Col, Card, CardBody } from 'reactstrap';
 
 class CustomerForm extends Component {
 	constructor(props) {
