@@ -15,8 +15,7 @@ class CustomerForm extends Component {
 		  phone: '',
 		  email: '',
 		  zipcode: '',
-		  formErrors: {},
-		  visible: true
+		  formErrors: {}
 	 	}
 
 	 	this.initialState = this.state;    
@@ -84,15 +83,7 @@ class CustomerForm extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		if (this.formValidator()){
-	    this.props.visibleCntrl() // toggle state to be not visible
-		}
-	}
-
-	formVisibleCntrl = () => {
-		if (this.props.visible === true){ 
-			return 'visible'
-		} else { 
-			return 'invisible' 
+	    	this.props.visibleCntrl() // toggle state to be not visible
 		}
 	}
 
