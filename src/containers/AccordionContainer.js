@@ -27,7 +27,7 @@ class AccordionContainer extends Component {
         	<CardBody>
 
 						<div class="form-header" onClick={ () => { this.visibleCntrl() } }>
-							<h2 class="form-header-title">{ this.props.title } <Button outline size="sm" class="float-right">edit</Button></h2>
+							<h2 class="form-header-title">{ this.props.title } <Button outline className="float-right edit-form-button" size="sm">edit</Button></h2>
 						</div>
 
 						<Collapse isOpen={ this.state.visible }>
