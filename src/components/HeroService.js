@@ -13,6 +13,20 @@ import { Card, CardBody, CardTitle } from 'reactstrap';
 import TeamInfoCard from './TeamInfoCard'
 
 class HeroService extends Component {
+	componentDidMount() {
+		// add superheros to redux store in this format
+		// where is dispatch?
+		let newHeros = [
+				{name: "Art Woman", age: 68, secretIdentity: "Jan Fan Jan", 
+					powers: ["Photographic Memory", "Historical Accuracy", "Infinite Paint"]},
+				{name: "Super Creative", age: 19, secretIdentity: "Daisy Oopsie", 
+					powers: ["Paint Faint", "Statistical Superiority", "Creative Block"]},
+				{name: "Muse", age: 68, secretIdentity: "Jan Fan Jan", 
+					powers: ["Photographic Memory", "Historical Accuracy", "Infinite Paint"]}
+			]
+
+		this.props.actions.addHeros(newHeros)
+	}
 
 	renderHeroCards = () => {
 		let results = this.props.heros.map((obj, idx) => {
@@ -23,7 +37,7 @@ class HeroService extends Component {
 
 	renderTeamInfoCard = () => {
 		if ( this.props.info.length !== 0 ){
-			return <Card className="team-info"><CardBody><TeamInfoCard info={ this.props.info }/></CardBody></Card>
+			return <Card><CardBody><TeamInfoCard info={ this.props.info }/></CardBody></Card>
 		}
 	}
 
@@ -34,7 +48,6 @@ class HeroService extends Component {
 				<br></br>
 				{ this.renderTeamInfoCard() }
 				{ this.renderHeroCards() }	
-				{/* need to add my own 4 heros - hard coded on mount? */}
 			</div>
 		)
 	}

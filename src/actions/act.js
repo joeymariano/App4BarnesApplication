@@ -20,3 +20,9 @@ export function getHeroService(){
       })
   }
 }
+
+export function addHeros(heroArray){
+  return (dispatch) => {
+    dispatch({type: 'ADD_HEROS', payload: heroArray})
+  }
+}

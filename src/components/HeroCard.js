@@ -4,7 +4,6 @@ import { Card, CardBody } from 'reactstrap';
 class HeroCard extends Component {
 
 	renderPowers = () => {
-
 		let results = this.props.powers.map((string) => {
 			return <div class="powers-list">{ string }</div>
 		})
