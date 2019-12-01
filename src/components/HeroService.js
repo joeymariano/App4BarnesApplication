@@ -14,16 +14,16 @@ import TeamInfoCard from './TeamInfoCard'
 
 class HeroService extends Component {
 	componentDidMount() {
-		// add superheros to redux store in this format
-		// where is dispatch?
-		let newHeros = [
-				{name: "Art Woman", age: 68, secretIdentity: "Jan Fan Jan", 
-					powers: ["Photographic Memory", "Historical Accuracy", "Infinite Paint"]},
-				{name: "Super Creative", age: 19, secretIdentity: "Daisy Oopsie", 
-					powers: ["Paint Faint", "Statistical Superiority", "Creative Block"]},
-				{name: "Muse", age: 39, secretIdentity: "Whoa Joe", 
-					powers: ["Perfect Pitch", "Synesthesia", "Vibration Shock"]}
-			]
+		// when component mounts add superheros to redux store in this format
+		let newHeros = 
+		[
+			{ name: "Art Woman", age: 68, secretIdentity: "Jan Fan Jan", 
+				powers: ["Photographic Memory", "Historical Accuracy", "Infinite Paint"] },
+			{ name: "Super Creative", age: 19, secretIdentity: "Daisy Oopsie", 
+				powers: ["Paint Faint", "Statistical Superiority", "Creative Block"] },
+			{ name: "Muse", age: 39, secretIdentity: "Whoa Joe", 
+				powers: ["Perfect Pitch", "Synesthesia", "Vibration Shock"] }
+		]
 
 		this.props.actions.addHeros(newHeros)
 	}

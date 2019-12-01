@@ -56,10 +56,22 @@ ul{
 }
 
 .plus-button{
-	width: 40px;
+	display: inline;
+	width: 44px;
+	height: 44px;
+	margin-bottom: 4px;
 }
 
 .minus-button{
-	width: 40px;
+	display: inline;
+	width: 44px;
+	height: 44px;
+	margin-bottom: 4px;
+}
+
+.hero-count{
+	display: inline !important;
+	width: 44px !important;
+	height: 44px !important;
 }
 

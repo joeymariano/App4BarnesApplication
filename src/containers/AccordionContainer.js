@@ -14,10 +14,9 @@ class AccordionContainer extends Component {
 	}
 
 	visibleCntrl = () => {
-		// use form.minimize and form.maximize depending on min max count?
 		this.setState(prevState => ({
 		  visible: !prevState.visible
-		}));
+		}))
 	}
 
 	outputFormOrHero = () => {
@@ -39,21 +38,19 @@ class AccordionContainer extends Component {
 
 	render(){
 		return(
-			<div id="customer-form-container">
-        <Card>
-        	<CardBody>
-						<div class="accordion-header" onClick={ () => { this.visibleCntrl() } }> 
-							<h2 class="accordion-title">{ this.props.title }
-							<Button outline className="float-right edit-form-button" size="sm">{ this.toggleButtonName() }</Button></h2>
-						</div>
+      <Card id="customer-form-container">
+      	<CardBody>
+					<div class="accordion-header" onClick={ () => { this.visibleCntrl() } }> 
+						<h2 class="accordion-title">{ this.props.title }
+						<Button outline className="float-right edit-form-button" size="sm">{ this.toggleButtonName() }</Button></h2>
+					</div>
 
-						<Collapse isOpen={ this.state.visible }>
-							{ this.outputFormOrHero() }
-						</Collapse>
+					<Collapse isOpen={ this.state.visible }>
+						{ this.outputFormOrHero() }
+					</Collapse>
 
-					</CardBody>
-		    </Card>
-			</div>
+				</CardBody>
+	    </Card>
 		)
 	}
 }
