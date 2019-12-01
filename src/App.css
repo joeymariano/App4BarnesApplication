@@ -32,6 +32,7 @@ h2{
 	font-size: .8em;
 	color: #d64220;
 	margin-bottom: -6px;
+	margin-top: 6px;
 }
 
 .btn-danger {
@@ -55,18 +56,11 @@ ul{
   list-style-type: circle;
 }
 
-.plus-button{
+.plus-minus-button{
 	display: inline;
 	width: 44px;
 	height: 44px;
-	margin-bottom: 4px;
-}
-
-.minus-button{
-	display: inline;
-	width: 44px;
-	height: 44px;
-	margin-bottom: 4px;
+	margin-bottom: 5px;
 }
 
 .hero-count{

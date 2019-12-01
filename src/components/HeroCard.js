@@ -11,7 +11,6 @@ class HeroCard extends Component {
 	 	this.initialState = this.state;    
 	}
 
-
 	renderPowers = () => {
 		let results = this.props.powers.map((string) => {
 			return <div class="powers-list">{ string }</div>
@@ -51,11 +50,11 @@ class HeroCard extends Component {
 						</ul>
 						<p className="float-right">
 
-						<Button className='plus-button' onClick={ () => this.addSelectCount() }>+</Button>
+						<Button className='plus-minus-button' onClick={ () => this.addSelectCount() }>+</Button>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<Input className='hero-count' name='selectCount' type='text' value={ this.state.selectCount } onChange={ this.updateCountState }/>
 						&nbsp;&nbsp;&nbsp;&nbsp;
-						<Button className='minus-button' onClick={ () => this.deleteSelectCount() }>-</Button>
+						<Button className='plus-minus-button' onClick={ () => this.deleteSelectCount() }>-</Button>
 						<div class='max-heros'>max 10 heros</div>
 						</p>
 					</CardBody>
