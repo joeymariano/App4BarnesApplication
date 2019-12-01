@@ -50,11 +50,13 @@ class HeroCard extends Component {
 							<li>Powers: { this.renderPowers() }</li>
 						</ul>
 						<p className="float-right">
+
 						<Button className='plus-button' onClick={ () => this.addSelectCount() }>+</Button>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<Input className='hero-count' name='selectCount' type='text' value={ this.state.selectCount } onChange={ this.updateCountState }/>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<Button className='minus-button' onClick={ () => this.deleteSelectCount() }>-</Button>
+						<div class='max-heros'>max 10 heros</div>
 						</p>
 					</CardBody>
 				</Card>

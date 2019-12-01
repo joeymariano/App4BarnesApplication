@@ -1,15 +1,10 @@
-// Name (cannot be empty) X
-// Phone Number (at least 7 digits, only numbers)
-// Email Address (cannot be empty and must be in format abc@xyz.someTld)
-// Zip Code (at least 5 digits, only numbers)
-
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/act'
 import HeroCard from './HeroCard'
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import TeamInfoCard from './TeamInfoCard'
 
 class HeroService extends Component {
