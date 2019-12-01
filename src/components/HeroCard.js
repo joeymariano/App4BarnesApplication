@@ -19,7 +19,11 @@ class HeroCard extends Component {
 		return results
 	}
 
-	addSelectCount = () => this.setState({selectCount: this.state.selectCount + 1})
+	addSelectCount = () => {
+		if (this.state.selectCount < 10) {
+			this.setState({selectCount: this.state.selectCount + 1})
+		}
+	}
 
 	deleteSelectCount = () => {
 
@@ -32,13 +36,16 @@ class HeroCard extends Component {
 		return(
 				<Card>
 					<CardBody>
-						<h3>{ this.props.name }</h3>
+						<h3>{ this.props.name } / { this.props.secretIdentity }</h3>
 						<ul>
 							<li>Age: { this.props.age }</li>
-							<li>Secret Identity: { this.props.secretIdentity }</li>
 							<li>Powers: { this.renderPowers() }</li>
 						</ul>
-						<Button onClick={ () => this.addSelectCount() }>Add</Button> + { this.state.selectCount } - <Button onClick={ () => this.deleteSelectCount() }>Delete</Button>
+						<p className="float-right">
+						<Button className='plus-button' onClick={ () => this.addSelectCount() }>+</Button>
+						&nbsp;&nbsp;{ this.state.selectCount }&nbsp;&nbsp;
+						<Button className='minus-button' onClick={ () => this.deleteSelectCount() }>-</Button>
+						</p>
 					</CardBody>
 				</Card>
 		)

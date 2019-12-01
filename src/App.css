@@ -54,3 +54,12 @@ h2{
 ul{
   list-style-type: circle;
 }
+
+.plus-button{
+	width: 40px;
+}
+
+.minus-button{
+	width: 40px;
+}
+
