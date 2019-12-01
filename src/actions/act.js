@@ -7,7 +7,6 @@ export function getHeroService(){
       .then(response => response.json())
       .then(herosData => {
       		let heros = herosData.members
-
       		let info = []
       		for(let i in herosData){
       			if (i !== 'members'){

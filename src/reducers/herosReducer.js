@@ -5,7 +5,6 @@ export default function herosReducer(state = { heros: [], info: [], loading: fal
       return { ...state, loading: true}
 
     case 'FETCH_HEROS':
-      debugger
       return { heros: action.payload[0], info: action.payload[1], loading: false }
 
     case 'DELETE_ALL_HEROS':
