@@ -5,7 +5,7 @@ class TeamInfoCard extends Component {
 		let result = this.props.info.map((obj) => {
 			let keyValue = Object.keys(obj).toString()
 			if (keyValue === 'squadName'){
-				return <h1 class='heroGroup'>Squad Name: { obj[keyValue] }</h1>
+				return <h1 class='heroGroup'>{ obj[keyValue] }</h1>
 			}
 			if (keyValue === 'homeTown'){
 				return <h2>Hometown: { obj[keyValue] }</h2>

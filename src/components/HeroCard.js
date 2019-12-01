@@ -19,20 +19,21 @@ class HeroCard extends Component {
 	}
 
 	addSelectCount = () => {
+		// need to make sure it cant go past 10
 		if (this.state.selectCount < 10) {
 			this.setState({selectCount: this.state.selectCount + 1})
 		}
 	}
 
 	deleteSelectCount = () => {
-
+		// need to make sure it cant go below 0
 		if (this.state.selectCount > 0) {
 			this.setState({selectCount:  this.state.selectCount - 1})
 		}
 	}
 
 	updateCountState = (event) => {
-		if (event.target.value <= 10){ // make sure value doesn't go past 10
+		if (event.target.value <= 10 || event.target.value >= 0){ // make sure value doesn't go past 10
 		 this.setState({
 		   [event.target.name]: event.target.value
 		 })
