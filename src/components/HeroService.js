@@ -9,29 +9,22 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/act'
 import HeroCard from './HeroCard'
+import { Card, CardBody, CardTitle } from 'reactstrap';
+import TeamInfoCard from './TeamInfoCard'
 
 class HeroService extends Component {
-	renderTeamInfoCards = () => {
-		let result = this.props.info.map((obj, idx) => {
-			let keyValue = Object.keys(obj).toString()
 
-			if (keyValue === 'squadName'){
-				return <h1 class='heroGroup'>Squad Name: { obj[keyValue] }</h1>
-			}
-			if (keyValue === 'homeTown'){
-				return <h2>Hometown: { obj[keyValue] }</h2>
-			}
-			if (keyValue === 'formed'){
-				return <p>Formed: { obj[keyValue] } </p>
-			}
-			if (keyValue === 'secretBase'){
-				return <p>Secrect Base: { obj[keyValue] }</p>
-			}
-			if (keyValue === 'active'){
-				return <p>Active?: { obj[keyValue].toString() }</p>
-			}
+	renderHeroCards = () => {
+		let results = this.props.heros.map((obj, idx) => {
+			return <HeroCard name={ obj.name } age={ obj.age } secretIdentity={ obj.secretIdentity } powers={ obj.powers } />
 		})
-		return result
+		return results
+	}
+
+	renderTeamInfoCard = () => {
+		if ( this.props.info.length !== 0 ){
+			return <Card className="team-info"><CardBody><TeamInfoCard info={ this.props.info }/></CardBody></Card>
+		}
 	}
 
 	render() {
@@ -39,10 +32,9 @@ class HeroService extends Component {
 			<div>
 				<Button onClick={ () => { this.props.actions.getHeroService() }}>Get More Heros and Team Information.</Button>
 				<br></br>
-				{ this.renderTeamInfoCards() }
-				{ JSON.stringify(this.props.heros) }	
-				{/* need to add my own 4 heros - hard coded */}
-
+				{ this.renderTeamInfoCard() }
+				{ this.renderHeroCards() }	
+				{/* need to add my own 4 heros - hard coded on mount? */}
 			</div>
 		)
 	}
