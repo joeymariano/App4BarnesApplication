@@ -8,6 +8,32 @@ import { Card, CardBody } from 'reactstrap';
 import TeamInfoCard from './TeamInfoCard'
 
 class HeroService extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		  heroCount: 0,
+		  powerCount: 0
+	 	}
+
+	 	this.initialState = this.state;    
+	}
+
+	addHeroCount = (amount) => {
+			this.setState({heroCount: this.state.heroCount + amount})
+	}
+
+	deleteHeroCount = (amount) => {
+			this.setState({heroCount:  this.state.heroCount - amount})
+	}
+
+	addPowerCount = (amount) => {
+			this.setState({powerCount: this.state.powerCount + amount})
+	}
+
+	deletePowerCount = (amount) => {
+			this.setState({powerCount:  this.state.powerCount - amount})
+	}
+
 	componentDidMount() {
 		// when component mounts add superheros to redux store in this format
 		let newHeros = 
@@ -42,7 +68,7 @@ class HeroService extends Component {
 				<Button onClick={ () => { this.props.actions.getHeroService() }}>Get More Heros and Team Information.</Button>
 				<br></br>
 				{ this.renderTeamInfoCard() }
-				{ this.renderHeroCards() }	
+				{ this.renderHeroCards() }
 			</div>
 		)
 	}

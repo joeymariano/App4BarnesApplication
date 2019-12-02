@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import AccordionContainer from './containers/AccordionContainer'
+import Home from './containers/Home'
+import Confirmation from './containers/Confirmation'
 import Logo from './components/Logo'
 import { Container, Row, Col } from 'reactstrap';
+import { Route, Switch } from "react-router-dom";
 
-class App extends Component {
-  render() {
+export default function App() {
     return (
-	    <Container>
-	  		<Row>
-				<Col xs="4">
-	      			<Logo />
-	      		</Col>
-			</Row>
-	  		<Row>
-				<Col md="12" lg="8">
-	        		<AccordionContainer title={ 'Customer Information'}/>
-	        		<AccordionContainer title={ 'Hero Service'}/>
-	      		</Col>
-			</Row>
-	     </Container>
-    )
-  }
-}
+    	<Container>
+				<Row>
+					<Col xs="4">
+						<Logo />
+					</Col>
+				</Row>
 
-export default App;
+				<Switch>
+				<Route path="/confirmation">
+	    		<Confirmation />
+	    	</Route>
+	    	<Route path="/">
+	    		<Home />
+	    	</Route>
+	    	</Switch>
+    	</Container>
+    )
+}

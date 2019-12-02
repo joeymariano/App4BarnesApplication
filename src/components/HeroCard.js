@@ -33,7 +33,8 @@ class HeroCard extends Component {
 	}
 
 	updateCountState = (event) => {
-		if (event.target.value <= 10 || event.target.value >= 0){ // make sure value doesn't go past 10
+		// make sure value doesn't go past 10 or below 0
+		if (event.target.value <= 10 || event.target.value >= 0){
 		 this.setState({
 		   [event.target.name]: event.target.value
 		 })

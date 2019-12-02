@@ -1,4 +1,3 @@
-
 export default function herosReducer(state = { heros: [], info: [], loading: false }, action) {
   switch (action.type) {
     case 'LOADING_HEROS':
