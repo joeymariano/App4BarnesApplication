@@ -7,22 +7,23 @@ import { Container, Row, Col } from 'reactstrap';
 import { Route, Switch } from "react-router-dom";
 
 export default function App() {
-    return (
-    	<Container>
-				<Row>
-					<Col xs="4">
-						<Logo />
-					</Col>
-				</Row>
+  return (
+  	<Container>
+			<Row> {/* Header / Layout */}
+				<Col xs="4">
+					<Logo />
+				</Col>
+			</Row>
 
-				<Switch>
+			<Switch> {/* urls */}
 				<Route path="/confirmation">
 	    		<Confirmation />
 	    	</Route>
 	    	<Route path="/">
 	    		<Home />
 	    	</Route>
-	    	</Switch>
-    	</Container>
-    )
+    	</Switch>
+
+  	</Container>
+  )
 }
